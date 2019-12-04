@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar class="backMenu">
+    <ion-buttons slot="start" class="branco">
+      <ion-menu-button>
+        <ion-icon ios="ios-more" md="md-more"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title class="titulo">
+      WANIPON
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg">
+  <a (click)="navegar('animeinfo')">
+    <img src="/assets/darker-than-black.jpg"/>
+
+<div class="AnimedaSemana" >Anime da Semana</div></a>
+
+<div class="textin">Últimos Lançamentos:</div>
+<div *ngIf="semanais ===undefined; else tt" class="load">Nenhum episódio novo</div>
+<ng-template #tt>
+  <a (click)="iranimeinfo(i.id)" *ngFor="let i of semanais" >
+    <div class="titani">{{ i.nome }}</div>
+    <div class="episem">{{ i.ultimoEpisodio }}</div>
+    <img [src]="i.imagem" class="semimg"/>
+  </a>
+</ng-template>

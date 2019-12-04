@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar class="backMenu">
+      <ion-buttons slot="start" class="branco">
+        <ion-menu-button>
+          <ion-icon ios="ios-more" md="md-more"></ion-icon>
+        </ion-menu-button>
+      </ion-buttons>
+      <ion-title class="titulo" (click)="navegar('home')">
+        WANIPON
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+<ion-content class="bg">
+  <div class="imput">
+    <input type="number" [(ngModel)]="finalAmount" style="padding-bottom: 10px;">
+    <h2 *ngIf="paypalLoad">Paypal button is loading</h2>
+    <div id="paypal-checkout-btn"></div>
+  </div>
+</ion-content>
+

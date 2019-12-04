@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar class="backMenu">
+    <ion-buttons slot="start" class="branco">
+      <ion-menu-button>
+        <ion-icon ios="ios-more" md="md-more"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title class="titulo" (click)="navegar('home')">
+      WANIPON
+    </ion-title>
+    <ion-icon name="heart-empty" slot="end" class="heart-icon" (click)="add()"></ion-icon>
+    <!--<ion-icon name="add" slot="end" class="heart-icon"></ion-icon>-->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg" >
+    <div *ngIf="idea === undefined; else tt" class="load">CARREGANDO</div>
+  <ng-template #tt>
+  <img [src]="idea.perfil"/>
+  <div class="titpagani">
+      {{ idea.nome }}
+  </div>
+  <div class="sinopse">{{ idea.sinopse }}</div>
+<div class="br"></div><a class="infotag" >Sinônimo</a><a class="infoani">{{ idea.sinonimo }}</a>
+<div class="br"></div><a class="infotag">Genêro</a><a class="infoani">&nbsp;{{ idea.genero }}</a>
+<div class="br"></div><a class="infotag">Data</a><a class="infoani">{{ idea.data }}</a>
+<div class="br"></div><a class="infotag">Estúdio</a><a class="infoani">{{ idea.estudio }}</a>
+<div class="br"></div><a class="infotag" >Origem</a><a class="infoani">{{ idea.origem }}</a>
+<div class="br"></div><a class="infotag">Episódios</a><a class="infoani">{{ idea.episodios }}</a>
+<div class="br"></div><a class="infotag">Status</a><a class="infoani">{{ idea.status }}</a>
+<div class="br"></div><a class="infotag" >Indicação</a><a class="infoani">{{ idea.indicacao }}</a>
+<div class="br"></div><a class="infotag" >Assistir</a><a class="infoani">{{ idea.assistir }}</a>
+<div class="br"></div><a class="infotag" >Áudio</a><a class="infoani">{{ idea.audio }}</a>
+<div class="br"></div><a class="infotag">Nível de indicação</a><a class="infoani" style="border-radius: 30px; background-color: #078607;">{{ idea.NivelDeIndicacao }}</a>
+
+
+
+
+
+<!--
+<div class="br"></div><a class="infotag" >Screenshots</a><br/>
+<div class="scrolling-wrapper">
+  <div class="box"><img src="/assets/screeenshot/1.jpg"/></div>
+  <div class="box"><img src="/assets/screeenshot/2.png"/></div>
+  <div class="box"><img src="/assets/screeenshot/3.png"/></div>
+  <div class="box"><img src="/assets/screeenshot/4.jpg"/></div>
+  <div class="box"><img src="/assets/screeenshot/5.jpg"/></div>
+  <div class="box"><img src="/assets/screeenshot/6.jpg"/></div></div>
+  <div class="br"></div><a class="infotag" >Marcador</a><br/>
+<div class="epi">01  -  23:00</div><div class="epi">02  -  23:00</div><div class="epi">03  -  23:00</div>
+<div class="epi">04  -  23:00</div><div class="epi">05  -  23:00</div><div class="epi">06  -  23:00</div>
+<div class="epi">07  -  23:00</div><div class="epi">08  -  23:00</div><div class="epi">09  -  23:00</div>
+<div class="epi">10  -  23:00</div><div class="epi">11  -  23:00</div><div class="epi">12  -  23:00</div>
+<div class="epi">13  -  23:00</div><div class="epi">14  -  23:00</div><div class="epi">15  -  23:00</div>
+<div class="epi">16  -  23:00</div><div class="epi">17  -  23:00</div><div class="epi">18  -  23:00</div>
+<div class="epi">19  -  23:00</div><div class="epi">20  -  23:00</div><div class="epi">21  -  23:00</div>
+<div class="epi">22  -  23:00</div><div class="epi">23  -  23:00</div><div class="epi">24  -  23:00</div>
+<div class="epi">25  -  23:00</div>
+<div style="clear:both;"></div>
+
+<br/> 
+</ng-template>
+-->
+

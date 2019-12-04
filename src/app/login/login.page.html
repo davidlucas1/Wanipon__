@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar class="backMenu">
+    <ion-buttons slot="start" class="branco">
+    </ion-buttons>
+    <ion-title class="titulo" style="margin-left: 55px;">
+      WANIPON
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="bg">
+
+<div class="bgmsg">
+  Email
+  <div class="msg">
+      <ion-item class="back-branco">
+          <ion-input [(ngModel)]="usuario.email"></ion-input>
+        </ion-item>
+  </div>
+  </div>
+
+<div class="bgmsg">
+  Senha
+  <div class="msg">
+      <ion-item class="back-branco">
+          <ion-input type="password" [(ngModel)]="usuario.senha"></ion-input>
+        </ion-item>
+  </div>
+</div>
+
+<div class="asf" >
+  <ion-button color="dark" expand="full" class="sortbut" (click)="registrar()">registrar</ion-button>
+  <ion-button color="dark" expand="full" class="sortbut" (click)="logar()">entrar</ion-button>
+  <ion-button color="dark" expand="full" class="sortbut" (click)="logarfb()" >entrar com Facebook</ion-button>
+  <ion-button color="dark" expand="full" class="sortbut" (click)="salvar()">sair</ion-button>
+</div>
+
+</ion-content>

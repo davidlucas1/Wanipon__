@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar class="backMenu">
+    <ion-buttons slot="start" class="branco">
+      <ion-menu-button>
+        <ion-icon ios="ios-more" md="md-more"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title class="titulo" (click)="navegar('home')">
+      WANIPON
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="bg">
+  <a class="titpag">Ajuda</a><br/>
+  <div *ngIf="this.mensagem" style="background-color: #252525; " >
+    <ion-input name="pesquisa" type="text" [(ngModel)]="pesquisa" style="background-color: white;"></ion-input></div>
+  <a *ngFor="let mens of mai">
+  <div class="bgmsg">{{mens.Autor}}<div class="msg">{{mens.mensagem}}</div></div></a>
+  
+<ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+  <ion-fab-button (click)="enviarmensagem(pesquisa)">
+    <ion-icon name="mail" ></ion-icon>
+  </ion-fab-button>
+</ion-fab>

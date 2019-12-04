@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar class="backMenu">
+    <ion-buttons slot="start" class="branco">
+      <ion-menu-button>
+        <ion-icon ios="ios-more" md="md-more"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title class="titulo" (click)="navegar('home')">
+      WANIPON
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="bg">
+  
+
+  <div *ngIf="ordem ===undefined; else tt"></div>
+    <ng-template #tt>
+      <a *ngFor="let i of ordem" >
+          <a class="titpag">{{ i.nome }}</a><br/>
+      </a>
+    </ng-template>
+
+    <div *ngIf="listOrdem === undefined; else t" class="load">CARREGANDO</div>
+    <ng-template #t>
+      <a (click)="iranimeinfo(i.id)" *ngFor="let i of listOrdem" >
+        <div style="background-color: #252525" (click)="navegar('serieordenada')"><img [src]="i.perfil" class="animg"/>
+          <a class="titanitemp">{{ i.nome }}</a></div><br/>
+      </a>
+    </ng-template>
+
+    
+    </ion-content>

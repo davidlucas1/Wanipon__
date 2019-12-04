@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar class="backMenu">
+    <ion-buttons slot="start" class="branco">
+      <ion-menu-button>
+        <ion-icon ios="ios-more" md="md-more"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title class="titulo" (click)="navegar('home')">
+      WANIPON
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="bg">
+  <a class="titpag">Eventos próximos</a><br/>
+  <div *ngIf="lista ===undefined; else tt" class="load">CARREGANDO LISTA</div>
+<ng-template #tt>
+  <div  *ngFor="let i of lista" style="background-color: #252525; margin-top: 4px; padding:5px;">
+    <div class="cardanime2" ><img [src]="i.mapa" class="bunequinaqui"/>
+      <a class="titanitemp">{{ i.nome }}</a></div>
+      <a class="titanitemp">{{i.cidade}}-{{i.estado}}</a>
+    </div>
+</ng-template>
+  <!--<div class="ftmsg">Escolha um anime que você goste como sugestão para as pessoas que estiverem perto da sua localização.</div>-->
+  

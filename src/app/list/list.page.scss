@@ -1,0 +1,66 @@
+.filtro{
+    color: #ffffff;
+    font-family: league gothic;
+    font-size: 33px;
+    padding-left: 5px;
+} 
+
+.tags{
+        position: relative;
+        font-family: league gothic;
+        color: white;
+        margin-top: 5px;
+        font-size: 22px;
+        background-color: #252525;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 15px;
+}
+
+.br{
+    height: 1px;
+}
+
+.icon{
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    float: right;
+}
+
+img{
+    height: 170px;
+    width: 110px;
+}
+
+.cardanime2{
+    background-color: #252525;
+    margin-top: 10px;
+    padding: 6px;
+    margin-left: 3px;
+    float: left;
+    height: 225px;
+    width: 116px;
+    overflow: hidden;
+}
+.bunequinaqui{
+    width: 104px;
+    height: 180px;
+}
+.titanitemp{
+    position: relative;
+    color: white;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+    //height: 0px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+    text-align: initial;
+}
+
+.load{
+    text-align: center;
+    color: azure;
+    padding-top: 60%;
+}

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar class="backMenu">
+    <ion-buttons slot="start" class="branco">
+      <ion-menu-button>
+        <ion-icon ios="ios-more" md="md-more"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title class="titulo" (click)="navegar('home')">
+      WANIPON
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="bg">
+<a class="titpag">Gerador de Animes</a><br/>
+<a class="filtro" (click)="presentPopover($event)">Filtro</a><br/>
+<div class="alinharfiltros"><a class="tagfil">2019</a><a class="tagfil">Sci-Fi</a><a class="tagfil">Psicológico</a></div><br/>
+<a class="sortbut" (click)="sortear()">SORTEAR ANIME</a><br/>
+
+<div *ngIf="animes === undefined; else tt" class="load">CARREGANDO</div>
+      <ng-template #tt>
+        <a (click)="iranimeinfo(this.animeSorteado.id)">
+          <div class="cardanime" (click)="navegar('animeinfo')" *ngIf="this.animeSorteado"><img [src]="this.animeSorteado.baner" class='bunequinaqui'><a class="nomeani">{{this.animeSorteado.nome}}</a></div>
+        </a>
+</ng-template>

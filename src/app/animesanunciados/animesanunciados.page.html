@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-toolbar class="backMenu">
+      <ion-buttons slot="start" class="branco">
+        <ion-menu-button>
+          <ion-icon ios="ios-more" md="md-more"></ion-icon>
+        </ion-menu-button>
+      </ion-buttons>
+      <ion-title class="titulo" (click)="navegar('home')">
+        WANIPON
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content class="bg">
+    <a class="titpag">Animes Anunciados</a><br/>
+    <ion-icon name="search" class="icon"></ion-icon><br/><br/>
+
+      <div *ngIf="anime === undefined; else tt" class="load">CARREGANDO</div>
+      <ng-template #tt>
+        <a (click)="iranimeinfo(i.id)" *ngFor="let i of anime" >
+            <div style="background-color: #252525" (click)="navegar('animeinfo')"><img [src]="i.perfil" class="animg"/>
+              <a class="titanitemp">{{ i.nome }}</a></div><br/>
+        </a>
+      </ng-template>
+    
+  </ion-content>

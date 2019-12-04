@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar class="backMenu">
+    <ion-buttons slot="start" class="branco">
+      <ion-menu-button>
+        <ion-icon ios="ios-more" md="md-more"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title class="titulo" (click)="navegar('home')">
+      WANIPON
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg">
+  <a class="titpag">Animes Ordenados</a><br/>
+  <ion-icon name="search" class="icon"></ion-icon><br/><br/>
+
+
+  <div *ngIf="ordem === undefined; else tt" class="load">CARREGANDO</div>
+    <ng-template #tt>
+      <a (click)="serieordem(i.id)" *ngFor="let i of ordem" >
+        <div style="background-color: #252525" (click)="navegar('serieordenada')"><img [src]="i.perfil" class="animg"/>
+          <a class="titanitemp">{{ i.nome }}</a></div><br/>
+      </a>
+    </ng-template>
+
+
+  <!--<div style="background-color: #252525" (click)="navegar('serieordenada')"><img src="../../assets/aniorder/1.jpg" class="animg"/>
+    <a class="titanitemp">Série Fate</a></div><br/>-->
+
+</ion-content>
