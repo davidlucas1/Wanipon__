@@ -16,9 +16,10 @@ export class ListPage implements OnInit {
   public barraPesquisa;
   public pesquisa;
 
-  public anime;
   public lista;
+  public listaBackup;
   ordem: firebase.firestore.Query;
+  public arrozal;
 
   constructor(
     public navCtrl : NavController,
@@ -27,16 +28,16 @@ export class ListPage implements OnInit {
     private router : Router,
     private afs: AngularFirestore,
     ) {
+     
     this.barraPesquisa = false;
 
+    //CODIGO DA LISTA NORMAL
     this.ordem = this.afs.collection('lista').ref.orderBy("nome").limit(9);
       this.ordem.get()
       .then(dado=>{
-        
         this.lista = [];
         dado.forEach(docs=>{
           //console.log(docs.data())
-
           const data = docs.data();
           const id = docs.id;
           const nome = docs.data().nome;
@@ -45,12 +46,12 @@ export class ListPage implements OnInit {
           const ano = docs.data().ano;
           const estudio = docs.data().estudio;
             this.lista.push({id,nome,baner,genero,ano,estudio})
-
-
         })
-
-        console.log(this.lista);
+        this.listaBackup = this.lista
+        //console.log(this.lista);
       });
+
+
 
   }
   navegar(pagina) {
@@ -67,12 +68,28 @@ export class ListPage implements OnInit {
   pesquisar(pesquisa){
     if(this.barraPesquisa == false){this.barraPesquisa = true;}
     else{
-     this.pesquisa = pesquisa;
-      this.barraPesquisa = false;
+    this.lista = this.listaBackup;
+    if(pesquisa === "" || pesquisa === undefined){this.lista = this.listaBackup; this.barraPesquisa = false}else{
+
+        let alfredo = [];
+        for(let i = 0; i < this.lista.length; i++){
+          for(let ltr = 0; ltr < this.lista[i].nome.length; ltr++){
+            //console.log(this.lista[i].nome);
+          if(this.lista[i].nome.substring(ltr, ltr+(pesquisa.length)) == pesquisa){
+            console.log("confirmado")
+            alfredo.push(this.lista[i]);
+            break;
+          }
+          }
+          }
+
+      }this.barraPesquisa = false;
+      this.arrozal = this.lista;
   }}
 
   ngOnInit() {
     this.data.currentMessage.subscribe(animemassa => this.otorapa = animemassa);
+    
   }
   
   iranimeinfo(uuid) {

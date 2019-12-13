@@ -23,9 +23,9 @@
     <a class="tags">{{tag}}</a></a>
   </div>
   <a *ngIf="this.barraPesquisa"><ion-input name="pesquisa" type="text" [(ngModel)]="pesquisa" style="background-color: white"></ion-input></a>
-  <a *ngIf="this.pesquisa">{{this.pesquisa}}</a><br/>
+ 
 
-<div *ngIf="lista ===undefined; else tt" class="load">CARREGANDO LISTA</div>
+<div *ngIf="lista === undefined; else tt" class="load"></div>
 <ng-template #tt>
   <a (click)="iranimeinfo(i.id)" *ngFor="let i of lista" >
     <div class="cardanime2" (click)="navegar('animeinfo')"><img [src]="i.baner" class="bunequinaqui"/><a class="titanitemp">{{ i.nome }}</a></div>

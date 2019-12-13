@@ -13,7 +13,7 @@
 <ion-content class="bg">
   
 
-  <div *ngIf="ordem ===undefined; else tt"></div>
+  <div *ngIf="ordem === undefined; else tt"></div>
     <ng-template #tt>
       <a *ngFor="let i of ordem" >
           <a class="titpag">{{ i.nome }}</a><br/>
