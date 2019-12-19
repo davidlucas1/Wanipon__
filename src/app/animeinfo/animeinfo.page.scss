@@ -64,6 +64,7 @@
     margin-right: 15px;
     width: 25px;
     height: 25px;
+    float: right;
 }
 .epi{
     background-color: #1c1f36;
@@ -83,4 +84,8 @@
     text-align: center;
     color: azure;
     padding-top: 80%;
+}
+
+.alerte{
+    --ion-background-color: green;
 }

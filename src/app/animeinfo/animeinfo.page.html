@@ -8,7 +8,15 @@
     <ion-title class="titulo" (click)="navegar('home')">
       WANIPON
     </ion-title>
-    <ion-icon name="heart-empty" slot="end" class="heart-icon" (click)="add()"></ion-icon>
+
+    <a *ngIf="botaoAdd === false; else deletAnime">
+      <ion-icon name="heart" class="heart-icon" (click)="delete()"></ion-icon>
+    </a>
+
+    <ng-template #deletAnime>
+      <ion-icon name="heart-empty" class="heart-icon" (click)="add()"></ion-icon>
+    </ng-template>
+
     <!--<ion-icon name="add" slot="end" class="heart-icon"></ion-icon>-->
   </ion-toolbar>
 </ion-header>

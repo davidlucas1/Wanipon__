@@ -12,10 +12,16 @@
 </ion-header>
 
 <ion-content class="bg">
-  <a (click)="navegar('animeinfo')">
-    <img src="/assets/darker-than-black.jpg"/>
 
-<div class="AnimedaSemana" >Anime da Semana</div></a>
+  
+<div *ngIf="AnimeSemana === undefined; else gg" class="load"></div>
+<ng-template #gg>
+  <a (click)="iranimeinfo(i.id)" *ngFor="let i of AnimeSemana" >
+    <img [src]="i.imagem" class="semimg"/>
+  </a>
+</ng-template>
+
+<div class="AnimedaSemana" >Anime da Semana</div>
 
 <div class="textin">Últimos Lançamentos:</div>
 <div *ngIf="semanais ===undefined; else tt" class="load">Nenhum episódio novo</div>

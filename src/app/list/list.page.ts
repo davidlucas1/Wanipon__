@@ -15,11 +15,11 @@ export class ListPage implements OnInit {
   public otorapa;
   public barraPesquisa;
   public pesquisa;
+  public listaBackup;
 
   public lista;
-  public listaBackup;
   ordem: firebase.firestore.Query;
-  public arrozal;
+
 
   constructor(
     public navCtrl : NavController,
@@ -28,6 +28,7 @@ export class ListPage implements OnInit {
     private router : Router,
     private afs: AngularFirestore,
     ) {
+
      
     this.barraPesquisa = false;
 
@@ -42,15 +43,14 @@ export class ListPage implements OnInit {
           const id = docs.id;
           const nome = docs.data().nome;
           const baner = docs.data().baner;
-          const genero = docs.data().genero;
-          const ano = docs.data().ano;
-          const estudio = docs.data().estudio;
-            this.lista.push({id,nome,baner,genero,ano,estudio})
+          const filtro = docs.data().filtro;
+          const sinonimo = docs.data().sinonimo;
+            this.lista.push({id,nome,baner,filtro,sinonimo})
         })
-        this.listaBackup = this.lista
+        this.listaBackup = this.lista;
+        this.data.currentMessage.subscribe(animemassa => this.ngMonstro(animemassa));
         //console.log(this.lista);
       });
-
 
 
   }
@@ -73,23 +73,68 @@ export class ListPage implements OnInit {
 
         let alfredo = [];
         for(let i = 0; i < this.lista.length; i++){
+          let achou = false;
           for(let ltr = 0; ltr < this.lista[i].nome.length; ltr++){
             //console.log(this.lista[i].nome);
           if(this.lista[i].nome.substring(ltr, ltr+(pesquisa.length)) == pesquisa){
             console.log("confirmado")
             alfredo.push(this.lista[i]);
+            achou = true;
             break;
           }
           }
+          if(achou == false){
+          for(let ltr = 0; ltr < this.lista[i].sinonimo.length; ltr++){
+            //console.log(this.lista[i].nome);
+          if(this.lista[i].sinonimo.substring(ltr, ltr+(pesquisa.length)) == pesquisa){
+            console.log("confirmado")
+            alfredo.push(this.lista[i]);
+            break;
           }
-
+          }}
+          }
+          this.lista = alfredo;
       }this.barraPesquisa = false;
-      this.arrozal = this.lista;
   }}
 
-  ngOnInit() {
-    this.data.currentMessage.subscribe(animemassa => this.otorapa = animemassa);
+  ngMonstro(animemassa){this.otorapa = animemassa;if(this.otorapa.length > 0){this.criarFi()}else{this.lista = this.listaBackup;}}
+
+  criarFi(){
+    this.lista = this.listaBackup;
+    let tempLista = []
+    for(let a = 0; a < this.lista.length; a++){
+    for(let i = 0; i < this.lista[a].filtro.length; i++){
+    if(this.otorapa[0] === this.lista[a].filtro[i]){
+    tempLista.push(this.lista[a]);}}}
+  
     
+    if(this.otorapa.length > 1){
+    let novaLista = [];
+    for(let an = 0; an < tempLista.length; an++){
+    let verificando = false;
+    for(let fil = 1; fil < this.otorapa.length; fil++){
+    let verFil = false;
+    for(let f = 0; f < tempLista[an].filtro.length; f++){
+    if(this.otorapa[fil] === tempLista[an].filtro[f]){
+    verFil = true;}}
+
+    if(verFil === true){
+    verificando = true;}
+    else{verificando = false; break}}
+  
+    
+    if(verificando === true){
+    novaLista.push(tempLista[an])}
+    
+    
+    this.lista = novaLista;
+    }
+    }
+    else{
+    this.lista = tempLista;
+    }}
+
+  ngOnInit() {
   }
   
   iranimeinfo(uuid) {

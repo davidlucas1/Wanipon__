@@ -38,13 +38,10 @@
     
 }
 .filtro{
-    position: relative;
     color: white;
-    margin-left: 150px;
+    margin-left: 5px;
     font-size: 24px;
-    font-size: 31px;
     font-family: league gothic;
-    top: 30px;
 }
 .cardanime{
     background-color: #252525;
@@ -73,4 +70,16 @@
     text-align: center;
     color: azure;
     padding-top: 60%;
+}
+
+.tags{
+    position: relative;
+    font-family: league gothic;
+    color: white;
+    margin-top: 5px;
+    font-size: 22px;
+    background-color: #252525;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 15px;
 }

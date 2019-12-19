@@ -14,6 +14,11 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+
+  public AnimeSemana;
+  semanal: firebase.firestore.Query;
+
+
   public semanais;
   ultimos: firebase.firestore.Query;
   buscar: firebase.auth.IdTokenResult;
@@ -32,12 +37,24 @@ export class HomePage {
         this.semanais = [];
         dado.forEach(docs=>{
           //console.log(docs.data())
-
           const data = docs.data();
           const id = docs.id;
             this.semanais.push({id, ...data})
         })
+        //console.log(this.semanais);
+      });
 
+      //CODIGO PARA ANIME DA SEMANA
+      this.semanal = this.afs.collection('AnimedaSemana').ref.orderBy("nome").limit(5);
+      this.semanal.get()
+      .then(dado=>{
+        this.AnimeSemana = [];
+        dado.forEach(docs=>{
+          //console.log(docs.data())
+          const data = docs.data();
+          const id = docs.id;
+            this.AnimeSemana.push({id, ...data})
+        })
         //console.log(this.semanais);
       });
     }

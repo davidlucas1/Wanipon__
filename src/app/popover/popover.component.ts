@@ -10,13 +10,13 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 export class PopoverComponent implements OnInit {
   public marrapa;
   public filtro = [[
-  {nome : "ação", selected : false},
-  {nome : "seinen", selected : false},
-  {nome : "shounen", selected : false},
-  {nome : "aventura", selected : false},
-  {nome : "romance", selected : false},
-  {nome : "sobrenatural", selected : false},
-  {nome : "terror", selected : false}],
+  {nome : "Ação", selected : false},
+  {nome : "Seinen", selected : false},
+  {nome : "Shounen", selected : false},
+  {nome : "Aventura", selected : false},
+  {nome : "Romance", selected : false},
+  {nome : "Sobrenatural", selected : false},
+  {nome : "Terror", selected : false}],
   [
     {nome : "2013", selected : false},
     {nome : "2014", selected : false},
@@ -26,14 +26,15 @@ export class PopoverComponent implements OnInit {
     {nome : "2018", selected : false},
     {nome : "2019", selected : false}],
     [
-      {nome : "ufotable", selected : false},
-      {nome : "kyoto animation", selected : false},
-      {nome : "trigger", selected : false},
-      {nome : "a-1 pictures", selected : false},
-      {nome : "pierrot", selected : false},
-      {nome : "toei", selected : false},
-      {nome : "mad house", selected : false}]
+      {nome : "Ufotable", selected : false},
+      {nome : "Kyoto Animation", selected : false},
+      {nome : "Trigger", selected : false},
+      {nome : "A-1 Pictures", selected : false},
+      {nome : "Pierrot", selected : false},
+      {nome : "Toei", selected : false},
+      {nome : "Mad House", selected : false}]
 ]
+public filtroBackup = this.filtro;
 
   constructor(private data : DataService) {
     this.data.currentMessage.subscribe(animemassa => this.marrapa = animemassa); console.log(this.marrapa);
@@ -78,6 +79,11 @@ export class PopoverComponent implements OnInit {
       if(existe == false){filtroNovo.push(filtro[f])}
     }
      this.data.changeMessage(filtroNovo)
+  }
+  deletarFiltro(){
+    let a = [];
+    this.filtro = this.filtroBackup;
+    this.data.changeMessage(a);
   }
 
   marcar(){

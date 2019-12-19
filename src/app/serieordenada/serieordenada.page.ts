@@ -50,7 +50,7 @@ export class SerieordenadaPage implements OnInit {
       });
 
       //PARA PERGAR AS INFORMAÇÕES DOS ANIMES QUE TEM NA SERIE
-      this.listFinal = this.afs.collection("ordenados/"+this.idordem+"/series").ref.orderBy("nome").limit(9);
+      this.listFinal = this.afs.collection("ordenados/"+this.idordem+"/series").ref.orderBy("sequencia", "asc");
       this.listFinal.get()
       .then(dado=>{
         

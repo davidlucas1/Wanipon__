@@ -11,10 +11,10 @@
         font-family: league gothic;
     }
 .icon{
-    float: right;
-    height: 40px;
+    color: #ffffff;
     width: 40px;
-    color: white;
+    height: 40px;
+    float: right;
 }
 .animg{
     padding: 5px;
@@ -52,4 +52,15 @@
     text-align: center;
     color: azure;
     padding-top: 55%;
+}
+.tags{
+    position: relative;
+    font-family: league gothic;
+    color: white;
+    margin-top: 5px;
+    font-size: 22px;
+    background-color: #252525;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 15px;
 }

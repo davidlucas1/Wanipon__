@@ -12,9 +12,10 @@
 </ion-header>
 
 <ion-content class="bg">
+  
   <div>
    <ion-icon name="search" class="icon" (click)="pesquisar(pesquisa)"></ion-icon>
-   
+
     <a class="filtro" (click)="presentPopover($event)">Filtro</a>
   </div>
   
@@ -22,10 +23,11 @@
     <a *ngFor="let tag of this.otorapa">
     <a class="tags">{{tag}}</a></a>
   </div>
+  
   <a *ngIf="this.barraPesquisa"><ion-input name="pesquisa" type="text" [(ngModel)]="pesquisa" style="background-color: white"></ion-input></a>
  
 
-<div *ngIf="lista === undefined; else tt" class="load"></div>
+<div *ngIf="lista === undefined; else tt" class="load">CARREGANDO LISTA</div>
 <ng-template #tt>
   <a (click)="iranimeinfo(i.id)" *ngFor="let i of lista" >
     <div class="cardanime2" (click)="navegar('animeinfo')"><img [src]="i.baner" class="bunequinaqui"/><a class="titanitemp">{{ i.nome }}</a></div>

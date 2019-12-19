@@ -17,14 +17,16 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
 import { PopoverComponent } from './popover/popover.component';
 import { AnimeinfoPageModule } from './animeinfo/animeinfo.module';
+import { PopoTempComponent } from './popo-temp/popo-temp.component';
+import { PopoGeradorComponent } from './popo-gerador/popo-gerador.component';
 
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, PopoverComponent],
-  entryComponents: [PopoverComponent],
+  declarations: [AppComponent, PopoverComponent,PopoTempComponent,PopoGeradorComponent],
+  entryComponents: [PopoverComponent,PopoTempComponent,PopoGeradorComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

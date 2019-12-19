@@ -1,3 +1,14 @@
-<p>
-  popo-temp works!
-</p>
+<ion-content class="bg">
+  <div (click)="deletarFiltro()"  class="filtro" style="text-align: right;">Limpar</div><br/>
+  <ion-label class="filtro">Gênero</ion-label>
+  <ion-select multiple="true" class="titanitemp"  (ionChange)="filtrar($event, 0);" *ngFor="let a of filtro | slice:0:1 ;" >
+    <ion-select-option *ngFor="let i of a" [value]="i.nome" [selected]="i.selected">{{i.nome}}</ion-select-option>
+  </ion-select>
+  <ion-label class="filtro">Ano</ion-label>
+  <ion-select multiple="true" class="titanitemp"  (ionChange)="filtrar($event, 1);" *ngFor="let a of filtro | slice:1:2 ;" >
+    <ion-select-option *ngFor="let i of a" [value]="i.nome" [selected]="i.selected">{{i.nome}}</ion-select-option>
+  </ion-select>
+  <ion-label class="filtro">Estúdio</ion-label>
+  <ion-select multiple="true" class="titanitemp"  (ionChange)="filtrar($event, 2);" *ngFor="let a of filtro | slice:2:3 ;" >
+    <ion-select-option *ngFor="let i of a" [value]="i.nome" [selected]="i.selected">{{i.nome}}</ion-select-option>
+  </ion-select>

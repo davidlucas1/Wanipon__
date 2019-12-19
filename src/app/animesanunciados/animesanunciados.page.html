@@ -13,11 +13,14 @@
   
   <ion-content class="bg">
     <a class="titpag">Animes Anunciados</a><br/>
-    <ion-icon name="search" class="icon"></ion-icon><br/><br/>
+    <ion-icon name="search" class="icon" (click)="pesquisar(pesquisa)"></ion-icon>
+    <a *ngIf="this.barraPesquisa"><ion-input name="pesquisa" type="text" [(ngModel)]="pesquisa" style="background-color: white"></ion-input></a>
+ 
+    <br/><br/>
 
-      <div *ngIf="anime === undefined; else tt" class="load">CARREGANDO</div>
+      <div *ngIf="lista === undefined; else tt" class="load">CARREGANDO</div>
       <ng-template #tt>
-        <a (click)="iranimeinfo(i.id)" *ngFor="let i of anime" >
+        <a (click)="iranimeinfo(i.id)" *ngFor="let i of lista" >
             <div style="background-color: #252525" (click)="navegar('animeinfo')"><img [src]="i.perfil" class="animg"/>
               <a class="titanitemp">{{ i.nome }}</a></div><br/>
         </a>

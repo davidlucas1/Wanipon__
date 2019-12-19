@@ -11,12 +11,22 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="bg">
+
 <a class="titpag">Gerador de Animes</a><br/>
-<a class="filtro" (click)="presentPopover($event)">Filtro</a><br/>
-<div class="alinharfiltros"><a class="tagfil">2019</a><a class="tagfil">Sci-Fi</a><a class="tagfil">Psicológico</a></div><br/>
+
+<div>
+   <a class="filtro" (click)="presentPopover($event)">Filtro</a>
+ </div>
+  
+  <div *ngIf="this.otorapa" style="width: 500px;">
+    <a *ngFor="let tag of this.otorapa">
+    <a class="tags">{{tag}}</a></a>
+  </div>
+  <br/><br/>
+
 <a class="sortbut" (click)="sortear()">SORTEAR ANIME</a><br/>
 
-<div *ngIf="animes === undefined; else tt" class="load">CARREGANDO</div>
+<div *ngIf="lista === undefined; else tt" class="load">CARREGANDO</div>
       <ng-template #tt>
         <a (click)="iranimeinfo(this.animeSorteado.id)">
           <div class="cardanime" (click)="navegar('animeinfo')" *ngIf="this.animeSorteado"><img [src]="this.animeSorteado.baner" class='bunequinaqui'><a class="nomeani">{{this.animeSorteado.nome}}</a></div>
